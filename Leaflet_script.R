@@ -47,8 +47,7 @@ fbi_data <- readRDS("R Leaflet/data/database.rds")
 ak <- filter(fbi_data, State == "Alaska")
 ak <- mutate(ak, adress = paste(City, State, "United States"))
 adress <- unique(ak$adress)
-#register_google(key = "AIzaSyCsX740Z0-C3Th0RxEs6oIk8W34xEcjreg", account_type = "standard")
-#geocodes <- geocode(location = adresses, source = "google")
+
 adresses_data <- data.table(adress)
 geocodes <- adresses_data %>% geocode(address = adress, method = "osm")
 
